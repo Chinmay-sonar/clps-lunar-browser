@@ -17,7 +17,7 @@
 
 <br />
 
-<img src="docs/screenshots/viper_surface_simulation.png" alt="Codyseey VIPER Surface Simulation" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 20px 50px rgba(0,0,0,0.9);" />
+<img src="docs/screenshots/codyseey_landing_site_selection.jpg" alt="Codyseey Lunar Mission Browser" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 20px 50px rgba(0,0,0,0.9);" />
 
 </div>
 
@@ -66,8 +66,8 @@ The lunar South Pole is humanity's primary gateway for sustainable lunar presenc
     </tr>
     <tr>
       <td width="50%">
-        <img src="docs/screenshots/mission_staging_lunar_globe.png" alt="Mission Staging Lunar Globe" width="100%" />
-        <p align="center"><b>Google Earth-Style Global Staging & Landing Site Reticles</b></p>
+        <img src="docs/screenshots/codyseey_surface_simulation.jpg" alt="Surface Simulation & Cockpit HUD" width="100%" />
+        <p align="center"><b>Lunar Surface Traversal & Real-Time Cockpit HUD</b></p>
       </td>
       <td width="50%">
         <img src="docs/screenshots/griffin_lander_deployment.png" alt="Lander Deployment" width="100%" />
