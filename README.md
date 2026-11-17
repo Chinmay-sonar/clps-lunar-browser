@@ -166,7 +166,7 @@ In strict accordance with the NASA Space Apps Challenge criteria, all orbital me
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/ChinmaySonar/clps-lunar-browser.git
+git clone https://github.com/Chinmay-sonar/clps-lunar-browser.git
 
 # Navigate into project directory
 cd clps-lunar-browser
