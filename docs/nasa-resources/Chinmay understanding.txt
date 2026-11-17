@@ -1,0 +1,93 @@
+The 2 Main Issues: 
+  1.The Radio Connectivity With Earth Which Cause trouble beacause of the craters and mountains 
+  2. The 50 meters death zone - Area by which the rover unable to grab the solar light 
+
+
+ ** When we run the app for the first time we have to select a moon from the drop down menu, but we should be able to see all the moons at once on the 3D globe and we should be able to click on them to see the details.
+ **The Moon also wobbles slightly as it orbits (called libration).**
+
+ SPICE Software packages : tells you where a spacecraft, planet, moon, or instrument was—and what it was looking at—at a particular time.
+
+================================================================================
+SPACE & NASA SHORTFORMS GLOSSARY (EASY REFERENCE)
+================================================================================
+
+1. CLPS (Commercial Lunar Payload Services)
+   - Full Form: Commercial Lunar Payload Services
+   - Simple Meaning: NASA's program of hiring private commercial space companies (like Intuitive Machines, Astrobotic, Firefly) to build robotic landers and fly NASA instruments, rovers, and gear to the Moon.
+
+2. LOLA (Lunar Orbiter Laser Altimeter)
+   - Full Form: Lunar Orbiter Laser Altimeter
+   - Simple Meaning: A laser instrument on NASA's LRO spacecraft. It fired 28 laser pulses per second at the Moon to measure the exact distance to the ground, creating the world's most precise 3D elevation maps of the lunar surface.
+
+3. LRO (Lunar Reconnaissance Orbiter)
+   - Full Form: Lunar Reconnaissance Orbiter
+   - Simple Meaning: NASA's robotic spacecraft that has been orbiting the Moon since 2009. It maps the terrain, measures radiation, searches for water ice, and scout landing spots.
+
+4. LROC (Lunar Reconnaissance Orbiter Camera)
+   - Full Form: Lunar Reconnaissance Orbiter Camera
+   - Simple Meaning: The high-resolution camera system on LRO. It can zoom in so close (up to 0.5 meters per pixel) that you can see Apollo landing stages and rover tire tracks.
+
+5. NAC & WAC (Narrow Angle Camera & Wide Angle Camera)
+   - Full Form: Narrow Angle Camera / Wide Angle Camera
+   - Simple Meaning: The two types of cameras inside LROC. NAC takes ultra-sharp, zoomed-in black-and-white photos of craters and boulders; WAC takes wide panoramic color views.
+
+6. SPICE (Spacecraft, Planet, Instrument, C-matrix, Events)
+   - Full Form: Spacecraft, Planet, Instrument, C-matrix (pointing), Events
+   - Simple Meaning: NASA/JPL's official navigation toolkit and mathematical software library. Given any date and time, SPICE calculates the exact 3D coordinates, orientation, velocity, and viewing angles of planets, moons, and spacecraft.
+
+7. NAIF (Navigation and Ancillary Information Facility)
+   - Full Form: Navigation and Ancillary Information Facility
+   - Simple Meaning: The specialized team at NASA Jet Propulsion Laboratory (JPL) responsible for building and maintaining the SPICE system and publishing planetary orbit files (kernels).
+
+8. DEM / DTM (Digital Elevation Model / Digital Terrain Model)
+   - Full Form: Digital Elevation Model / Digital Terrain Model
+   - Simple Meaning: A 3D topographical map where each pixel contains the altitude/height of that exact spot. Essential for calculating whether a mountain blocks your solar panels or radio antennas.
+
+9. PSR (Permanently Shadowed Region)
+   - Full Form: Permanently Shadowed Region
+   - Simple Meaning: Deep crater floors near the lunar poles where the Sun never shines because the Sun is always low on the horizon. These spots stay frozen at -246 deg C for billions of years, locking in valuable water ice.
+
+10. DTE (Direct-to-Earth Communication)
+   - Full Form: Direct-to-Earth
+   - Simple Meaning: When a lunar lander or rover sends radio signals straight to antennas on Earth without needing an orbiting relay satellite. If a crater rim blocks the line-of-sight to Earth, DTE is cut off.
+
+11. DSN (Deep Space Network)
+   - Full Form: Deep Space Network
+   - Simple Meaning: NASA's international array of giant dish antennas located in California (Goldstone), Spain (Madrid), and Australia (Canberra) that receive signals from distant space missions.
+
+12. VIPER (Volatiles Investigating Polar Exploration Rover)
+   - Full Form: Volatiles Investigating Polar Exploration Rover
+   - Simple Meaning: NASA's golf-cart-sized rover designed to navigate the Moon's South Pole, headlights blazing, to drill into dark craters and measure water ice.
+
+13. PDS (Planetary Data System)
+   - Full Form: Planetary Data System
+   - Simple Meaning: NASA's massive open-access public digital library where raw scientific data, radar scans, and imagery from all NASA planetary missions are hosted for scientists and developers.
+
+14. WMS (Web Map Service)
+   - Full Form: Web Map Service
+   - Simple Meaning: An internet standard for streaming high-resolution 2D and 3D map tiles and satellite terrain into web apps without having to download 50 GB files to your computer.
+
+15. LOS (Line of Sight)
+   - Full Form: Line of Sight
+   - Simple Meaning: An unbroken straight line between two points. In our app: Line of Sight to Sun = Solar Power; Line of Sight to Earth = Radio Communication.
+
+16. IM / IM-1 (Intuitive Machines / Mission 1 'Odysseus')
+   - Full Form: Intuitive Machines Mission 1
+   - Simple Meaning: The historic private CLPS landing in February 2024 that landed near Malapert A crater at the lunar South Pole, proving that commercial landers can touch down in polar terrain.
+
+17. UTC (Coordinated Universal Time)
+   - Full Form: Coordinated Universal Time
+   - Simple Meaning: The universal standard clock used by astronomers and space agencies across the globe so everyone references the exact same instant in time.
+
+18. Libration (The Moon's Wobble)
+   - Meaning: Because the Moon's orbit is elliptical and slightly tilted, the Moon appears to 'nod' and 'wobble' as seen from Earth. Because of libration, Earth rises and dips near the horizon at the lunar South Pole, causing radio communication windows to open and close.
+
+19. Azimuth & Elevation
+   - Meaning: 
+     * Azimuth: The 360-degree compass heading (0 deg = North, 90 deg = East, 180 deg = South, 270 deg = West).
+     * Elevation (Altitude): The height above the flat horizon in degrees (0 deg = touching the horizon, 90 deg = directly overhead in the sky).
+
+20. Artemis Program
+   - Meaning: NASA's modern lunar exploration program to land the first woman and next man on the Moon, build sustainable base camps at the South Pole, and prepare for human missions to Mars.
+================================================================================

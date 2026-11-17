@@ -1,0 +1,15 @@
+{
+  "name": "codyseeylunar",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "alias": [
+    "codyseeylunar.vercel.app"
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+
+⭐ CHALLENGE 4 DATA DOSSIER: CLPS LUNAR MISSION BROWSER
+
+Status: SUPER SPECIAL PRIORITY
+Challenge URL: https://www.spaceappschallenge.org/2026/challenges/clps-lunar-mission-browser/
+Difficulty: Advanced / Intermediate
+Subjects: Human Exploration, Moon, Software, Space Exploration
+Dossier Compiled: 2026-09-21
+====================================================================================================.
+
+PROBLEM SUMMARY:
+Build an intuitive tool that lets mission planners, educators, and the public
+compare lunar South Pole landing sites and dates by visualizing Sun and Earth
+positions relative to the horizon, assessing solar power potential and
+direct-to-Earth communication windows.
+
+====================================================================================================
+SECTION 1: OFFICIAL NASA DATASETS & DATA PORTALS
+====================================================================================================
+
+1.1 LUNAR TOPOGRAPHY — LRO LOLA (Lunar Orbiter Laser Altimeter)
+----------------------------------------------------------------------------------------------------
+- Description: The gold standard for lunar elevation data. Gridded DEMs at
+  resolutions from 64 ppd (global) down to 5 m/pixel at the South Pole.
+- Products: Gridded Data Records (GDR), Point Data, Polar Stereographic DEMs
+- South Pole Specialty: Researchers have created refined 5 m/pixel DEMs for
+  high-priority South Pole landing sites by co-adjusting LOLA tracks
+  (horizontal accuracy ~10-20 cm).
+- Access Portal: PDS Geosciences Node
+  → https://pds-geosciences.wustl.edu/missions/lro/lola.html
+- Direct Download: https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/
+- Format: IMG/PDS3, GeoTIFF
+- File Sizes: Individual tiles ~50-500 MB; full global dataset ~100+ GB
+
+1.2 LUNAR RECONNAISSANCE ORBITER CAMERA (LROC)
+----------------------------------------------------------------------------------------------------
+- Description: High-resolution optical imagery of the lunar surface.
+  Narrow Angle Camera (NAC) at 0.5 m/pixel, Wide Angle Camera (WAC) at 100 m/pixel.
+- Key Products: NAC DTMs (Digital Terrain Models), WAC mosaics, Apollo landing site imagery
+- Access Portal: LROC Quickmap & PDS Imaging Node
+  → https://quickmap.lroc.asu.edu/
+  → https://wms.lroc.asu.edu/lroc/
+- API: LROC WMS (Web Map Service) for tile-based imagery
+  → Base URL: https://wms.lroc.asu.edu/lroc/
+
+1.3 NASA NAIF SPICE KERNELS (Sun/Earth/Moon Ephemeris)
+----------------------------------------------------------------------------------------------------
+- Description: THE critical dataset for this challenge. SPICE provides precise
+  geometric positions of the Sun, Earth, and spacecraft relative to the Moon
+  at any point in time. Required for computing solar illumination angles and
+  Earth visibility (line-of-sight communication windows).
+- Toolkit: SPICE Toolkit (C, Fortran, IDL, MATLAB, Python via SpiceyPy)
+- Python Binding: SpiceyPy → pip install spiceypy
+- Generic Kernels (Sun, Earth, Moon positions):
+  → https://naif.jpl.nasa.gov/pub/naif/generic_kernels/
+- CLPS Mission-Specific Kernels:
+  → https://naif.jpl.nasa.gov/pub/naif/pds/
+  → Task Order kernels: TO2AB (Astrobotic), TO2IM (Intuitive Machines), TO19D
+- Planetary Ephemeris: DE440 (latest) or DE421
+  → https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/
+- Lunar Frame Kernels (Moon orientation/libration):
+  → https://naif.jpl.nasa.gov/pub/naif/generic_kernels/fk/satellites/
+  → moon_080317.tf, moon_assoc_me.tf
+- Leap Seconds Kernel: naif0012.tls
+- Format: Binary SPK, CK, PCK files + text FK, IK, SCLK files
+
+1.4 CLPS MISSION LANDING SITES & MANIFESTS
+----------------------------------------------------------------------------------------------------
+- Description: Official NASA page tracking all Commercial Lunar Payload
+  Services missions, landing locations, payloads, and dates.
+- IM-1 (Intuitive Machines): Landed near Malapert A, Feb 2024
+- IM-2 (Intuitive Machines): Mons Mouton / Shackleton Crater rim area
+- IM-3: Multiple delivery locations
+- Astrobotic Peregrine (TO2AB): Attempted 2024
+- Firefly Blue Ghost (TO19D): Mare Crisium
+- Official CLPS Page: https://www.nasa.gov/commercial-lunar-payload-services/
+- PDS CLPS Archive: https://pds-geosciences.wustl.edu/missions/clps/
+- CLPS Task Orders: https://www.nasa.gov/commercial-lunar-payload-services/
+
+1.5 LUNAR QUICKMAP (Interactive Lunar GIS)
+----------------------------------------------------------------------------------------------------
+- Description: NASA/ASU interactive web-based lunar mapping tool with
+  dozens of data layers including illumination, slope, roughness, hydrogen.
+- Features: Layer toggle, measurement tools, crater identification, 3D view
+- Access: https://quickmap.lroc.asu.edu/
+- Data Layers Include:
+  → LOLA Elevation (color-coded)
+  → LOLA Slope
+  → Diviner H-parameter (thermal roughness)
+  → Mini-RF radar (subsurface ice indicators)
+  → Neutron spectrometer (hydrogen/water ice proxy)
+  → Permanently Shadowed Regions (PSR) maps
+
+1.6 MOON TREK (NASA/JPL Interactive 3D Moon)
+----------------------------------------------------------------------------------------------------
+- Description: NASA/JPL interactive 3D visualization tool for Moon exploration.
+  Features WMTS tile service for programmatic access.
+- Access: https://trek.nasa.gov/moon/
+- WMTS API Documentation: https://trek.nasa.gov/tiles/apidoc/
+- Tile URL Pattern:
+  https://trek.nasa.gov/moon/
+  (WMTS Tile Format: `https://trek.nasa.gov/tiles/Moon/EQ/{LayerName}/{z}/{y}/{x}.png`)
+- Available Layers: LOLA elevation, WAC mosaic, Clementine UV/VIS, Mini-RF
+
+1.7 LUNAR SOUTH POLE ATLAS (LPI/USRA)
+----------------------------------------------------------------------------------------------------
+- Description: Comprehensive reference atlas for lunar South Pole features,
+  including named craters, peaks of eternal light, PSRs, and proposed
+  Artemis landing regions.
+- Access: https://www.lpi.usra.edu/lunar/lunar_south_pole_atlas/
+- Contains: Topographic maps, illumination charts, feature catalogs
+
+1.8 NASA SCIENTIFIC VISUALIZATION STUDIO — LUNAR ILLUMINATION
+----------------------------------------------------------------------------------------------------
+- Description: High-fidelity pre-rendered animations showing how sunlight
+  illuminates the South Pole over time (2023-2030 projections).
+  Perfect reference material for validation of any tool built.
+- Access: https://svs.gsfc.nasa.gov/
+- Key Visualization IDs:
+  → SVS Animation: "Lunar South Pole Illumination" (search "south pole illumination")
+  → Shows shadow movement across Shackleton, de Gerlache, Connecting Ridge
+
+1.9 NASA-IBM LUNAR FOUNDATION MODEL (Open Source AI)
+----------------------------------------------------------------------------------------------------
+- Description: Recently released open-source AI model integrating 30+
+  spatially-aligned data layers from lunar missions. Helps analyze topography,
+  identify craters, predict ice prospectivity in permanently shadowed regions.
+- GitHub: Search "NASA-IBM lunar foundation model" on Hugging Face
+
+1.10 DUST — Digital Lunar Exploration Sites Unreal Simulation Tool
+----------------------------------------------------------------------------------------------------
+- Description: NASA open-release 3D simulation tool for assessing landing
+  site traverses. Integrates LOLA DEM data and SPICE ephemerides in Unreal Engine.
+- Access: NASA Software Catalog → https://software.nasa.gov/ (search "DUST")
+
+====================================================================================================
+SECTION 2: OPEN-SOURCE TOOLS, LIBRARIES & GITHUB REPOS
+====================================================================================================
+
+2.1 SpiceyPy (Python SPICE Bindings)
+- Description: Python wrapper for NASA NAIF SPICE toolkit
+- Install: pip install spiceypy
+- GitHub: https://github.com/AndrewAnnex/SpiceyPy
+- Documentation: https://spiceypy.readthedocs.io/
+- Key Functions:
+  → spkezr() — Get position of Sun/Earth relative to Moon at any time
+  → subpnt() — Find sub-solar and sub-Earth points on Moon surface
+  → illumf() — Compute illumination angles at a surface point
+  → sincpt() — Compute ray-surface intersection (line-of-sight check)
+
+2.2 Celestial Mapping System (CMS)
+- Description: NASA-developed platform for generating virtual 3D globes
+  with sunlight shading, line-of-sight analysis, and terrain profiling.
+- Status: Check NASA Software Catalog for availability
+
+2.3 Cesium / CesiumJS (3D Geospatial Visualization)
+- Description: Open-source JavaScript 3D globe and map engine. Can be
+  adapted for lunar surfaces with custom terrain providers.
+- Website: https://cesium.com/
+- GitHub: https://github.com/CesiumGS/cesium
+- Relevance: Perfect for building the 3D lunar South Pole browser UI
+
+2.4 Three.js (WebGL 3D Engine)
+- Description: Most popular JavaScript 3D library. Can render LOLA
+  elevation data as 3D terrain meshes with real-time lighting.
+- Website: https://threejs.org/
+- GitHub: https://github.com/mrdoob/three.js
+
+2.5 NASA Ames Stereo Pipeline (ASP)
+- Description: Open-source photogrammetry toolkit for generating DTMs
+  from stereo imagery pairs (LROC NAC, HiRISE).
+- GitHub: https://github.com/NeoGeographyToolkit/StereoPipeline
+- Use Case: Generate custom high-res terrain for specific landing sites
+
+====================================================================================================
+SECTION 3: KAGGLE & COMMUNITY DATASETS
+====================================================================================================
+
+3.1 Lunar Surface Dataset (Kaggle)
+- Search: "lunar surface" OR "moon terrain" on kaggle.com
+- Notable: Lunar crater detection datasets, LOLA-derived elevation grids
+
+3.2 NASA Open Data Portal
+- URL: https://data.nasa.gov/
+- Search: "lunar", "moon", "CLPS", "LOLA", "south pole"
+- Contains: Processed datasets, mission metadata, instrument catalogs
+
+====================================================================================================
+SECTION 4: RESEARCH PAPERS & TECHNICAL REFERENCES
+====================================================================================================
+
+4.1 "Lunar South Pole Illumination Conditions" — Key Paper
+- Topic: Detailed analysis of solar illumination patterns at South Pole
+  using LOLA DEMs and DE421 ephemerides
+- Where to Find: NASA NTRS (ntrs.nasa.gov) or arXiv
+- Search Terms: "lunar south pole illumination LOLA" OR "permanently shadowed regions"
+
+4.2 "Landing Site Selection for Lunar South Pole Missions"
+- Topic: Engineering constraints (slope, roughness, Earth visibility,
+  illumination duration) vs scientific objectives (PSR access, ice deposits)
+- Where to Find: NASA NTRS, IEEE Aerospace Conference proceedings
+
+4.3 CLPS Payload Integration and Performance Studies
+- Topic: How commercial landers handle power/thermal/comms constraints
+- Where to Find: NASA NTRS (search "CLPS payload")
+
+====================================================================================================
+SECTION 5: YOUTUBE & VIDEO RESOURCES
+====================================================================================================
+
+5.1 NASA Goddard — "Lunar South Pole Illumination" (Official SVS Animation)
+- URL: Search YouTube → "NASA SVS lunar south pole illumination"
+- Content: Beautiful pre-rendered animation showing shadow movement over
+  the South Pole throughout a full lunation cycle
+
+5.2 NASA JPL — "CLPS Landing Sites" Overview
+- URL: Search YouTube → "NASA CLPS landing sites south pole"
+- Content: Official mission briefings showing planned CLPS landing locations
+
+5.3 Intuitive Machines — IM-1 and IM-2 Mission Videos
+- URL: https://www.youtube.com/@IntuitiveMachines
+- Content: Nova-C lander operations, South Pole approach videos
+
+5.4 Smarter Every Day / Scott Manley — Lunar South Pole Explainers
+- Content: Popular science explainers about why the South Pole is so
+  challenging (extreme shadows, "peaks of eternal light", water ice)
+
+====================================================================================================
+SECTION 6: STRATEGY & ARCHITECTURE RECOMMENDATIONS
+====================================================================================================
+
+6.1 CORE TECHNICAL ARCHITECTURE
+- Frontend: Three.js or CesiumJS for 3D lunar terrain rendering
+- Ephemeris Engine: SpiceyPy compiled to WebAssembly (OR server-side Python
+  API serving precomputed Sun/Earth vectors via REST)
+- Terrain Data: LOLA 5m/pixel South Pole DEM converted to mesh/heightmap
+- Time Controls: Interactive scrubber spanning 2024-2030 with 1-hour granularity
+- Visualization: Real-time shadow casting based on Sun azimuth/elevation at
+  each candidate landing site
+
+6.2 KILLER DIFFERENTIATORS
+- "Mission Opportunity Finder": Automated algorithm that identifies multi-day
+  continuous sunlight windows + Earth line-of-sight for any South Pole site
+- Side-by-Side Site Comparison: Select 2-4 candidate sites and overlay their
+  illumination/comms profiles on a single timeline
+- Export/Share: Generate mission planning reports (PDF) with illumination
+  charts for specific dates
+
+6.3 DATA PIPELINE
+1. Download LOLA South Pole DEM (5m/pixel GeoTIFF)
+2. Load SPICE generic kernels (planetary ephemeris, lunar orientation)
+3. For each time step (hourly, 2024-2030):
+   a. Compute Sun vector relative to Moon center (spkezr)
+   b. Compute Earth vector relative to Moon center (spkezr)
+   c. For each surface point (lat/lon grid at South Pole):
+      - Ray-trace Sun vector against terrain → illuminated or shadowed
+      - Ray-trace Earth vector against terrain → comms or blocked
+4. Store results as time-indexed illumination/visibility matrices
+5. Serve via API or precomputed tiles to frontend
+
+====================================================================================================
+SECTION 7: LIVE API ENDPOINTS (Directly Usable with Our NASA API Key)
+====================================================================================================
+
+7.1 Moon Trek WMTS Tiles
+- Endpoint: https://trek.nasa.gov/moon/
+  (WMTS Tile Format: `https://trek.nasa.gov/tiles/Moon/EQ/{LayerName}/{z}/{y}/{x}.png`)
+- Our API Key: LQhwgrQsHUOZlrY7MOG5Lde6duuBxBeIlDIdpiKJ
+- Layers: LOLA_Color, WAC_GLOBAL, LOLA_Slope, etc.
+
+7.2 NASA Image and Video Library API
+- Endpoint: https://images-api.nasa.gov/search?q=lunar+south+pole
+- Returns: Official NASA photography and video of South Pole features
+- No key required (public API), but our key increases rate limits
+
+====================================================================================================
+END OF CHALLENGE 4 DOSSIER
+====================================================================================================

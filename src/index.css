@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   CODYSEEY // CLPS Lunar Mission Browser
+   Minimalist Aerospace Interface System
+   Ref: taste-skill Anti-Slop, High Editorial Design, NASA Flight Control
+   ========================================================================== */
+
+/* ─── Self-Hosted Typographic Hierarchy (Google Sans + Canela Deck + TT Ramillas) ─── */
+@font-face {
+  font-family: 'Inter Display';
+  src: url('/fonts/InterDisplay-ExtraLight.ttf') format('truetype');
+  font-weight: 100 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela Deck';
+  src: url('/fonts/CanelaDeck-Thin-Trial.otf') format('opentype');
+  font-weight: 100 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Ramillas';
+  src: url('/fonts/TT Ramillas Trial Variable Roman.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url('/fonts/GoogleSans-Regular.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Architectural Monochromatic Palette (Minimalist, Apple/Linear Tier) */
+  --bg-void: #030508;
+  --bg-surface: #0a0d14;
+  --bg-panel: rgba(11, 15, 23, 0.82);
+  --bg-panel-hover: rgba(18, 24, 36, 0.92);
+  --bg-inner-core: rgba(14, 18, 28, 0.75);
+
+  /* Hairlines & Structural Dividers (Whisper-thin, elegant) */
+  --border-hairline: rgba(255, 255, 255, 0.07);
+  --border-light: rgba(255, 255, 255, 0.12);
+  --border-focus: rgba(255, 255, 255, 0.28);
+
+  /* Typography Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #334155;
+
+  /* Restrained Signal Colors (Strictly Functional, Never Decorative Neon) */
+  --signal-sun: #f59e0b;
+  --signal-earth: #10b981;
+  --signal-alert: #f43f5e;
+  --signal-cyan: #38bdf8;
+  --signal-purple: #a855f7;
+
+  /* Typography Hierarchy (taste-skill Anti-Slop: Editorial Display + Modern Crisp UI) */
+  --font-display: 'Canela Deck', 'TT Ramillas', Georgia, serif;
+  --font-serif: 'TT Ramillas', Georgia, serif;
+  --font-editorial: 'Canela Deck', serif;
+  --font-sans: 'Inter', 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  /* Easing curves (Mass & Spring Physics) */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Reset & Ergonomics */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  user-select: none;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clean, Floating Panel Architecture (No Cheesy Sci-Fi Brackets) */
+.glass-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-hairline);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.2s var(--ease-out);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-light);
+}
+
+/* Typography Utilities */
+.mono-val {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.sub-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* Minimal Flat Buttons (taste-skill: Clean tactile feedback, Google Sans UI) */
+.btn-minimal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s var(--ease-out);
+  outline: none;
+}
+
+/* Editorial & Typographic Hierarchy Classes */
+.font-display-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-ui {
+  font-family: var(--font-sans);
+}
+
+.btn-minimal:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-light);
+  color: #ffffff;
+}
+
+.btn-minimal:active {
+  transform: scale(0.98);
+}
+
+.btn-minimal.active {
+  background: #ffffff;
+  color: #050608;
+  border-color: #ffffff;
+  font-weight: 600;
+}
+
+.btn-action-primary {
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  color: #050608;
+  font-weight: 600;
+}
+
+.btn-action-primary:hover {
+  background: #e5e7eb;
+  border-color: #e5e7eb;
+}
+
+/* Status Indicator Dot (Clean, No Exaggerated Pulsing) */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Minimalist Range Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.12);
+  height: 2px;
+  border-radius: 1px;
+  outline: none;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+/* Mission Suite Popover Item */
+.btn-suite-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 8px 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.12s var(--ease-out);
+}
+
+.btn-suite-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.btn-suite-item:active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   GRU SPACE (www.gru.space) Design Tokens & Component System Verbatim
+   ========================================================================== */
+:root {
+  --_theme---background: var(--swatch--black);
+  --_text-style---font-family: var(--_typography---font--primary-family);
+  --_theme---text: var(--swatch--text-white);
+  --_text-style---font-size: var(--_typography---font-size--text-main);
+  --_text-style---line-height: var(--_typography---line-height--lh-1-4);
+  --_text-style---font-weight: var(--_typography---font--primary-regular);
+  --_text-style---letter-spacing: var(--_typography---letter-spacing--normal);
+  --radius--main: 1rem;
+  --_theme---background-2: white;
+  --site--column-count: 12;
+  --_responsive---large: 1;
+  --_responsive---medium: 0;
+  --_responsive---small: 0;
+  --_responsive---xsmall: 0;
+  --max-width--small: 50rem;
+  --_gap---size: var(--site--gutter);
+  --_column-count---value: 1;
+  --_theme---background-skeleton: color-mix(in lab, currentcolor 10%, transparent);
+  --border-width--main: .094rem;
+  --_text-style---margin-bottom: var(--_spacing---space--3);
+  --_text-style---text-wrap: pretty;
+  --_spacing---section-space--none: 0px;
+  --max-width--main: calc(var(--site--viewport-max) * 1rem);
+  --max-width--full: 100%;
+  --_text-style---margin-top: var(--_spacing---space--2);
+  --_text-style---trim-top: var(--_typography---font--primary-trim-top);
+  --_text-style---trim-bottom: var(--_typography---font--primary-trim-bottom);
+  --_typography---line-height--lh-1: 1;
+  --_typography---line-height--lh-1-1: 1.1;
+  --_typography---line-height--lh-1-2: 1.2;
+  --_typography---line-height--lh-1-3: 1.3;
+  --_typography---letter-spacing--tight: -.01em;
+  --_typography---letter-spacing--normal: 0em;
+  --_theme---heading-accent: white;
+  --_typography---font--primary-family: "Overused Grotesk", "Space Grotesk", Arial, sans-serif;
+  --_typography---font--primary-regular: 400;
+  --_typography---font--primary-medium: 500;
+  --_typography---font--primary-bold: 700;
+  --radius--small: .25rem;
+  --radius--round: 100vw;
+  --_theme---border: color-mix(in srgb, var(--swatch--black) 20%, transparent);
+  --swatch--transparent: transparent;
+  --size--1rem: 1rem;
+  --swatch--text-white: white;
+  --_theme---form--border: var(--swatch--bg-white-40);
+  --_trigger---on: 1;
+  --_theme---form--border-hover: var(--swatch--bg-white);
+  --_trigger---off: 0;
+  --swatch--black: #000000;
+  --swatch--bg-white-40: rgba(255, 255, 255, 0.4);
+  --swatch--bg-white: #ffffff;
+  --site--viewport-max: 120;
+  --site--gutter: 20px;
+  --_typography---font-size--text-main: 19.3766px;
+  --_typography---line-height--lh-1-4: 27.1273px;
+  --_spacing---space--2: 8px;
+  --_spacing---space--3: 12px;
+}
+
+/* GRU Measured Typography & Component Classes */
+.gru-body-text {
+  font-family: var(--_typography---font--primary-family);
+  font-size: 19.3766px;
+  line-height: 27.1273px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.gru-h2 {
+  font-family: var(--_typography---font--primary-family);
+  font-size: 56.5195px;
+  line-height: 1.12;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.gru-h3 {
+  font-family: var(--_typography---font--primary-family);
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.glass-card {
+  background: color(srgb 0 0 0 / 0.4);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 19.3766px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: color(srgb 0 0 0 / 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.badge-pill {
+  color: #ffffff;
+  border-radius: 1440px;
+  font-size: 19.3766px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.input {
+  background: #ffffff;
+  color: #080808;
+  padding: 8px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  outline: none;
+  font-family: var(--_typography---font--primary-family);
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Button style 1: background transparent, text #ffffff, radius 0px, padding 4px 10px, font 19.3766px/400 */
+.gru-btn-1 {
+  background: transparent;
+  color: #ffffff;
+  border-radius: 0px;
+  padding: 4px 10px;
+  font-size: 19.3766px;
+  font-weight: 400;
+  font-family: var(--_typography---font--primary-family);
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gru-btn-1:hover {
+  color: #eb5050;
+}
+
+/* Button style 2: background transparent, text #ffffff, radius 1440px, padding 0px, font 19.3766px/400 */
+.gru-btn-2 {
+  background: transparent;
+  color: #ffffff;
+  border-radius: 1440px;
+  padding: 0px;
+  font-size: 19.3766px;
+  font-weight: 400;
+  font-family: var(--_typography---font--primary-family);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gru-btn-2:hover {
+  opacity: 0.8;
+}
+
+.gru-link {
+  color: #333333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.gru-link:hover {
+  color: #ffffff;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin 16s linear infinite;
+}
+
+/* ─── Ultra Smooth Transitions & Framer-Style AI Loading FX ─── */
+@keyframes chosenLocationFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes aiShimmerWave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes aiRadarPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0.6;
+  }
+}
+
+.ai-telemetry-text-fx {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.35) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: aiShimmerWave 1.8s infinite linear;
+  font-family: 'Google Sans', 'Roboto', 'Inter', -apple-system, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.ai-telemetry-radar-pulse {
+  animation: aiRadarPulse 1.6s ease-in-out infinite;
+}
+
+/* ─── Exact Framer AITextLoadingFX Shader & Wave Animation ─── */
+@keyframes framerGradientSweep {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes framerTextSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ai-framer-text-wave {
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    #71717a 20%,
+    #e4e4e7 45%,
+    #ffffff 55%,
+    #a1a1aa 75%,
+    rgba(255, 255, 255, 0.22) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
