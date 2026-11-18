@@ -5,7 +5,7 @@
 **NASA International Space Apps Challenge 2026 — Challenge 4**
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-codyseeylunar.surge.sh-38bdf8?style=for-the-badge&logo=google-chrome&logoColor=white)](https://codyseeylunar.surge.sh)
-[![NASA Space Apps](https://img.shields.io/badge/NASA%20Space%20Apps-2026%20Finisher-0b3d91?style=for-the-badge&logo=nasa&logoColor=white)](https://www.spaceappschallenge.org/)
+[![NASA Space Apps](https://img.shields.io/badge/NASA%20Space%20Apps-Top%2010%20Global%20Nominee-0b3d91?style=for-the-badge&logo=nasa&logoColor=white)](https://www.spaceappschallenge.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 [![React](https://img.shields.io/badge/React%2019-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
