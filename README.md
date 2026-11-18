@@ -56,22 +56,22 @@ The lunar South Pole is humanity's primary gateway for sustainable lunar presenc
   <table>
     <tr>
       <td width="50%">
-        <img src="docs/screenshots/solstice_timeline_controller.png" alt="Solstice Timeline Controller" width="100%" />
-        <p align="center"><b>2026–2030 Solstice Timeline & Ephemeris Scrubber</b></p>
+        <img src="docs/screenshots/codyseey_brand_entrance.png" alt="Interactive Codyseey Brand Entrance" width="100%" />
+        <p align="center"><b>Interactive Codyseey Brand Entrance ([Elevate] & [Browse])</b></p>
       </td>
       <td width="50%">
-        <img src="docs/screenshots/solar_shadow_guidance.png" alt="Solar & Shadow Guidance Card" width="100%" />
-        <p align="center"><b>Multi-Tab Solar Dynamics & Earth DTE Link Budget</b></p>
+        <img src="docs/screenshots/codyseey_cinematic_epilogue.png" alt="Cinematic Vision & Mission Epilogue" width="100%" />
+        <p align="center"><b>Cinematic Vision & Mission Epilogue</b></p>
       </td>
     </tr>
     <tr>
       <td width="50%">
-        <img src="docs/screenshots/codyseey_surface_simulation.jpg" alt="Surface Simulation & Cockpit HUD" width="100%" />
-        <p align="center"><b>Lunar Surface Traversal & Real-Time Cockpit HUD</b></p>
+        <img src="docs/screenshots/codyseey_mission_ready_staging.jpg" alt="Global Lunar Staging & Mission Parameter Lock" width="100%" />
+        <p align="center"><b>Global Lunar Staging & Mission Parameter Lock</b></p>
       </td>
       <td width="50%">
-        <img src="docs/screenshots/griffin_lander_deployment.png" alt="Lander Deployment" width="100%" />
-        <p align="center"><b>Astrobotic Griffin Lander & Powered Descent Simulation</b></p>
+        <img src="docs/screenshots/codyseey_surface_solstice_timeline.jpg" alt="3D Lunar Surface Traversal & Solstice Timeline" width="100%" />
+        <p align="center"><b>3D Lunar Surface Traversal & 2026–2030 Solstice Timeline</b></p>
       </td>
     </tr>
   </table>
